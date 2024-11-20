@@ -9,6 +9,6 @@ app.use(express.urlencoded({ extended:false })); //
 app.use(router) // use router
 app.use(express.static(path.join(__dirname,'public'))) // use static file
 
-app.listen(3001, () => {
-    console.log("Run server at port 3001"); // run server
+app.listen(3005, () => {
+    console.log("Run server at port 3005"); // run server
 })
