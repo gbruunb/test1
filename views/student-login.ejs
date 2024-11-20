@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black flex flex-col items-center justify-center h-screen text-green-500">
+    <div id="startMessage" class="mb-4">
+        Press enter to start login
+    </div>
+    <div class="hidden" id="loginFormContainer">
+        <form id="loginForm" action="/login" method="post" class="space-y-4">
+            <div id="usernameLabel" class="hidden">
+                <label for="username" class="block mb-2">&gt; Username:</label>
+                <input type="text" placeholder="Enter your username" name="username" id="username" class="w-full bg-transparent border-none focus:ring-0 placeholder-green-500" autofocus>
+            </div>
+            <div id="passwordLabel" class="hidden">
+                <label for="password" class="block mb-2">&gt; Password:</label>
+                <input type="password" placeholder="Enter your password" name="password" id="password" class="w-full bg-transparent border-none focus:ring-0 placeholder-green-500">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.body.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Prevent form submit
+                const startMessage = document.getElementById('startMessage');
+                const loginFormContainer = document.getElementById('loginFormContainer');
+                if (startMessage && !startMessage.classList.contains('hidden')) {
+                    startMessage.classList.add('hidden');
+                    loginFormContainer.classList.remove('hidden');
+                    document.getElementById('usernameLabel').classList.remove('hidden');
+                    document.getElementById('username').focus();
+                }
+            }
+        });
+
+        const loginForm = document.getElementById('loginForm');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submit action
+            // Implement form submission logic here
+            alert('Form Submitted with Username: ' + username.value + ' and Password: ' + password.value);
+            // Reset or redirect after successful login
+        });
+
+        username.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && username.value !== '') {
+                e.preventDefault();
+                document.getElementById('passwordLabel').classList.remove('hidden');
+                password.focus();
+            }
+        });
+
+        password.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && password.value !== '') {
+                loginForm.submit(); // Trigger form submit
+            }
+        });
+    </script>
+</body>
+</html>

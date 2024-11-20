@@ -1,0 +1,38 @@
+use PEARLS
+
+db.createCollection("users")
+
+db.users.insertOne({
+  username: "gbru",
+  password: "gbru1234"
+})
+
+db.users.insertOne({
+  username: "gbru",
+  password: "gbru1234"
+})
+
+db.users.insertOne({
+  username: "momo",
+  password: "momo1234"
+})
+
+db.users.insertOne({
+  username: "boon",
+  password: "boon4681"
+})
+
+db.users.insertOne({
+  username: "100tk",
+  password: "wtttt343"
+})
+
+db.users.insertOne({
+  username: "cowboyz",
+  password: "moza1234"
+})
+
+db.users.insertOne({
+  username: "haha",
+  password: "haha6789"
+})
